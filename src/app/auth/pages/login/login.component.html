@@ -1,0 +1,17 @@
+
+<form [formGroup]="myForm" (ngSubmit)="login()">
+  <mat-form-field>
+    <mat-label>
+      E-mail
+    </mat-label>
+      <input matInput formControlName="email" placeholder="email" type="email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>
+      Password
+    </mat-label>
+      <input matInput formControlName="password" placeholder="email" type="email">
+  </mat-form-field>
+  <button mat-raised-button color="primary" >Iniciar Sesion</button>
+</form>
+

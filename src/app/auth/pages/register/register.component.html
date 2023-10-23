@@ -1,0 +1,16 @@
+<form [formGroup]="myForm" (ngSubmit)="register()">
+  <input type="text" placeholder="nombre" formControlName="name">
+  <input type="email" placeholder="email" formControlName="email">
+  <input type="password" placeholder="password" formControlName="password">
+  <input type="password" placeholder="password2" formControlName="password2">
+  <button>Aceptar</button>
+</form>
+
+<h2>name</h2>
+<pre> {{ myForm.controls['name'].errors | json}}</pre>
+<h2>email</h2>
+<pre> {{ myForm.controls['email'].errors | json}}</pre>
+<h2>password</h2>
+<pre> {{ myForm.controls['password'].errors | json}}</pre>
+<h2>password2</h2>
+<pre> {{ myForm.controls['password2'].errors | json}}</pre>
