@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './register.component.html',
-  styles: [
-  ]
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent  {
   private fb = inject(FormBuilder);
@@ -21,16 +20,43 @@ export class RegisterComponent  {
 
   })
 
+  public isValidField(field : string){
+    if(!this.myForm.touched ){
+      return false;
+    }else if( this.myForm.controls[field].valid)
+      return false;
+    return true;
+  }
+
+  public getCustomError(field: string){
+    if( this.myForm.controls['field']) return '';
+
+    const errors = this.myForm.controls[field].errors || {};
+
+    for(const key of Object.keys(errors)){
+      switch(key){
+        case 'email':
+          return 'Este campo debe ser un email';
+        case 'required':
+          return 'Este es un campo obligatorio';
+        case 'minlength':
+          return `Minimo ${ errors['minlength'].requiredLength} caracteres`
+        default:
+          return '';
+      }
+    }
+    return '';
+  }
 
   public register(){
     const {name,email,password, ...rest} = this.myForm.value;
-    console.log('register works');
 
-    this.authService.register(email,name,password).subscribe({
-      next: () => this.router.navigateByUrl('/dashboard'),
-      error: (err) => console.log(err),
+    if(this.myForm.valid){
+
+      this.authService.register(email,name,password).subscribe({
+        next: () => this.router.navigateByUrl('/dashboard'),
+        error: (err) => console.log(err),
+      });
     }
-
-    );
   }
 }

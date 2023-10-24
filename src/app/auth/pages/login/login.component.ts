@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './login.component.html',
-  styles: [
-  ]
+  styleUrls:['./login.component.css'],
 })
 export class LoginComponent {
 

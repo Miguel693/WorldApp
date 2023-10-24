@@ -1,16 +1,52 @@
-<form [formGroup]="myForm" (ngSubmit)="register()">
-  <input type="text" placeholder="nombre" formControlName="name">
-  <input type="email" placeholder="email" formControlName="email">
-  <input type="password" placeholder="password" formControlName="password">
-  <input type="password" placeholder="password2" formControlName="password2">
-  <button>Aceptar</button>
-</form>
 
-<h2>name</h2>
-<pre> {{ myForm.controls['name'].errors | json}}</pre>
-<h2>email</h2>
-<pre> {{ myForm.controls['email'].errors | json}}</pre>
-<h2>password</h2>
-<pre> {{ myForm.controls['password'].errors | json}}</pre>
-<h2>password2</h2>
-<pre> {{ myForm.controls['password2'].errors | json}}</pre>
+
+
+<div class="grid justify-content-center pt-6 bg-primary div-shadow">
+
+  <mat-card class="mat-shadow">
+    <mat-card-content>
+      <form [formGroup]="myForm" (ngSubmit)="register()">
+        <div class="col-12 col-offset-2">
+          <h1>Registrarse</h1>
+        </div>
+
+        <div class="col-12">
+          <mat-form-field>
+            <mat-label>E-mail</mat-label>
+            <input matInput type="email" placeholder="email" formControlName="email">
+          </mat-form-field>
+            <small *ngIf="isValidField('email')"  class="pt-0 warn block"> {{ getCustomError( 'email' ) }}</small>
+          </div>
+
+          <div class="col-12">
+            <mat-form-field>
+              <mat-label> Nombre</mat-label>
+              <input matInput type="text" placeholder="nombre" formControlName="name">
+            </mat-form-field>
+            <small *ngIf="isValidField('name')"  class="pt-0 warn block"> {{ getCustomError( 'name' ) }}</small>
+        </div>
+        <div class="col-12">
+          <mat-form-field>
+            <mat-label> Contraseña</mat-label>
+            <input matInput type="password" placeholder="password" formControlName="password">
+          </mat-form-field>
+          <small *ngIf="isValidField('password')"  class="pt-0 warn block"> {{ getCustomError( 'password' ) }} </small>
+        </div>
+        <div class="col-12">
+          <mat-form-field>
+              <mat-label> Confirmar Contraseña</mat-label>
+              <input matInput type="password" placeholder="password2" formControlName="password2">
+          </mat-form-field>
+          <small *ngIf="isValidField('password2')"  class="pt-0 warn block"> {{ getCustomError('password2' )}}</small>
+        </div>
+        <div class="col-12 col-offset-2">
+          <button mat-raised-button color="primary" >Iniciar Sesion</button>
+        </div>
+      </form>
+      <p>Ya tienes una cuenta?</p>
+      <a routerLink="/auth/login">Inicia sesion Aqui</a>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
