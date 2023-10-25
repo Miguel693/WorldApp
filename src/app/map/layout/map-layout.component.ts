@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import * as mapboxgl from 'mapbox-gl';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
-// (mapboxgl as any).accessToken = 'pk.eyJ1IjoibWlndWVsNjkzIiwiYSI6ImNsbmR5YzA4azA4YnUya3BrNHMyNGx0YjkifQ.FbgA3hNLbSOUOeMvSkAjXg';
 
 
 @Component({
@@ -9,13 +8,17 @@ import * as mapboxgl from 'mapbox-gl';
   templateUrl: './map-layout.component.html',
   styleUrls: ['./map-layout.component.css']
 })
-export class MapLayoutComponent {
+export class MapLayoutComponent implements OnInit{
+  private router = inject(Router);
 
+  ngOnInit(): void {
+    this.router.navigateByUrl('/map/map-screen');
+  }
 
-  // map = new mapboxgl.Map({
-  //   container: 'map', // container ID
-  //   style: 'mapbox://styles/mapbox/streets-v12', // style URL
-  //   center: [-74.5, 40], // starting position [lng, lat]
-  //   zoom: 9, // starting zoom
-  // });
+  public sideBarItems= [
+    {label : 'Mapa', icon : 'map', url: '/map/map-screen'},
+    {label : 'Marcadores', icon : 'place', url: '/map/markers'},
+    {label : 'Mas informacion', icon : 'info', url: '/map/country-info'},
+  ]
+
 }

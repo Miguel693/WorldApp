@@ -1,29 +1,80 @@
-<style>
-  .example-container {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-</style>
-<mat-drawer-container class="example-container">
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <mat-list>
-      <h1 class="p-4"> Menu </h1>
-      <mat-list-item routerLink="/map/map-screen">Mapa principal</mat-list-item>
-      <hr>
-      <mat-list-item routerLink="/map/markers">Marcadores</mat-list-item>
-      <hr>
-      <mat-list-item routerLink="/map/country-info">Ver informacion</mat-list-item>
-      <hr>
-      <mat-list-item routerLink="/auth/login">Cerrar sesion</mat-list-item>
-    </mat-list>
-  </mat-drawer>
 
-  <button type="button" mat-button (click)="drawer.toggle()">
-    <mat-icon >menu</mat-icon>
-  </button>
-</mat-drawer-container>
+<!-- <mat-sidenav-container  fullscreen>
+  <mat-sidenav #sidenav mode="push" [ngStyle]="{width: '250px'}">
+    <mat-toolbar>
+      <span>Menu</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+  </mat-sidenav>
+
+  <mat-nav-list>
+    <mat-list-item>Hola mundo</mat-list-item>
+  </mat-nav-list>
+
+</mat-sidenav-container> -->
+<!-- <mat-drawer-container class="sidenav-container">
+  <mat-toolbar color="primary">
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <mat-list>
+        <h1 class="p-4"> Menu </h1>
+        <mat-list-item routerLink="/map/map-screen">Mapa principal</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink="/map/markers">Marcadores</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink="/map/country-info">Ver informacion</mat-list-item>
+        <mat-divider></mat-divider>
+        <span class="vertical-spacer"></span>
+        <mat-list-item routerLink="/auth/login" class="margin-top-100">Cerrar sesion</mat-list-item>
+      </mat-list>
+    </mat-drawer>
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <mat-icon >menu</mat-icon>
+    </button>
+  </mat-toolbar>
+</mat-drawer-container> -->
+
 
 <router-outlet></router-outlet>
+
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="push" [ngStyle]="{width: '250px'}">
+    <mat-toolbar color="primary">
+      <span>Menu</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of sideBarItems" (click)="sidenav.toggle()" [routerLink]="item.url">
+        <mat-icon> {{ item.icon }} </mat-icon>
+          {{ item.label }}
+      </mat-list-item>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="spacer"></span>
+    <span class="mr-2">
+      <mat-icon>person</mat-icon>
+      Nombre de usuario </span>
+
+    <button mat-raised-button color="accent" > Logout </button>
+
+
+
+  </mat-toolbar>
+  <div class="container p-2">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
+
