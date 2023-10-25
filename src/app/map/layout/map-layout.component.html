@@ -1,0 +1,29 @@
+<style>
+  .example-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+</style>
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-list>
+      <h1 class="p-4"> Menu </h1>
+      <mat-list-item routerLink="/map/map-screen">Mapa principal</mat-list-item>
+      <hr>
+      <mat-list-item routerLink="/map/markers">Marcadores</mat-list-item>
+      <hr>
+      <mat-list-item routerLink="/map/country-info">Ver informacion</mat-list-item>
+      <hr>
+      <mat-list-item routerLink="/auth/login">Cerrar sesion</mat-list-item>
+    </mat-list>
+  </mat-drawer>
+
+  <button type="button" mat-button (click)="drawer.toggle()">
+    <mat-icon >menu</mat-icon>
+  </button>
+</mat-drawer-container>
+
+<router-outlet></router-outlet>
