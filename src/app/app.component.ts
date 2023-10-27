@@ -20,7 +20,6 @@ export class AppComponent {
     if(this.authService.authStatus() === AuthStatus.checking)
       return false;
     return true;
-
   });
 
 
@@ -30,8 +29,10 @@ export class AppComponent {
       case AuthStatus.authenticated:
         this.router.navigateByUrl('/dashboard')
         break;
-      case AuthStatus.notAuthenticated:
-        this.router.navigateByUrl('/auth/login')
+        case AuthStatus.notAuthenticated:
+          // this.router.navigateByUrl('/dashboard')
+          this.router.navigateByUrl('/map')
+          // this.router.navigateByUrl('/auth/login')
         break;
     }
 
