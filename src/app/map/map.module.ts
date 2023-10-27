@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { MapRoutingModule } from './map-routing.module';
 import { MapLayoutComponent } from './layout/map-layout.component';
-import { MapComponent } from './components/map/map.component';
+import { MapComponent } from './pages/map/map.component';
 import { MaterialModule } from '../material/material.module';
 import { MarkersComponent } from './pages/markers/markers.component';
 import { CountryInfoComponent } from './pages/country-info/country-info.component';
+import { AddMarkerButtonComponent } from './components/add-marker-button/add-marker.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CountryInfoComponent } from './pages/country-info/country-info.componen
     MapLayoutComponent,
     MapComponent,
     MarkersComponent,
-    CountryInfoComponent
+    CountryInfoComponent,
+    AddMarkerButtonComponent
   ],
   imports: [
     CommonModule,

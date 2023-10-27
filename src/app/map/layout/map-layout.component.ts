@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -17,8 +17,10 @@ export class MapLayoutComponent implements OnInit{
 
   public sideBarItems= [
     {label : 'Mapa', icon : 'map', url: '/map/map-screen'},
-    {label : 'Marcadores', icon : 'place', url: '/map/markers'},
     {label : 'Mas informacion', icon : 'info', url: '/map/country-info'},
+    {label : 'Marcadores', icon : 'place', url: '/map/markers'},
   ]
+
+  public displayMarkers = signal(false);
 
 }
