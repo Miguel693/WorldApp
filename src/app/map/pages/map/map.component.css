@@ -1,5 +1,8 @@
 .map{
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
   width: 100vw;
-  height: 100vh;
+  height: 91vh;
   background-color: #6ec8e1;
 }
