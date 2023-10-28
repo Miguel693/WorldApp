@@ -27,12 +27,12 @@ export class AppComponent {
 
     switch( this.authService.authStatus()){
       case AuthStatus.authenticated:
-        this.router.navigateByUrl('/dashboard')
+        this.router.navigateByUrl('/map')
         break;
         case AuthStatus.notAuthenticated:
           // this.router.navigateByUrl('/dashboard')
-          this.router.navigateByUrl('/map')
-          // this.router.navigateByUrl('/auth/login')
+          // this.router.navigateByUrl('/map')
+          this.router.navigateByUrl('/auth/login')
         break;
     }
 
