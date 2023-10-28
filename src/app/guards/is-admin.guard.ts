@@ -10,6 +10,6 @@ export const isAdminGuard: CanActivateFn = (route, state) => {
   if( authService.currentRole().includes(Roles.admin) )
     return true;
 
-  router.navigateByUrl('auth/login');
+  router.navigateByUrl('map/');
   return false;
 };
