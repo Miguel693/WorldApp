@@ -1,5 +1,6 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 
 
@@ -10,6 +11,9 @@ import { Router } from '@angular/router';
 })
 export class MapLayoutComponent implements OnInit{
   private router = inject(Router);
+  private authService = inject(AuthService);
+
+  public user = this.authService.currentUser();
 
   ngOnInit(): void {
     this.router.navigateByUrl('/map/map-screen');
@@ -21,6 +25,8 @@ export class MapLayoutComponent implements OnInit{
     {label : 'Marcadores', icon : 'place', url: '/map/markers'},
   ]
 
-  public displayMarkers = signal(false);
+  public logout() : void {
+    this.authService.logout();
+  }
 
 }
