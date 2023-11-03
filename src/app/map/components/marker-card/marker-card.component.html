@@ -1,4 +1,19 @@
-<h1 mat-dialog-title> Agregar Marcador </h1>
-<div mat-dialog-content> Contenido del dialog</div>
-<div mat-dialog-content> <button mat-raised-button mat-dialog-close color="warn" >Cancelar</button></div>
-<div mat-dialog-content> <button mat-raised-button >Aceptar</button></div>
+<div>
+  <h1 mat-dialog-title> Agregar Marcador </h1>
+  <div mat-dialog-actions>
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput name="name" placeholder="Nombre" >
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <mat-form-field>
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput name="description" placeholder="Descripcion"></textarea>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary">Aceptar</button>
+  </div>
+</div>
