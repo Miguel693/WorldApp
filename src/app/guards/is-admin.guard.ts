@@ -5,11 +5,7 @@ import { Roles } from '../auth/interfaces';
 
 export const isAdminGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
-  const router = inject(Router);
-
   if( authService.currentRole().includes(Roles.admin) )
     return true;
-
-  router.navigateByUrl('map/');
   return false;
 };
