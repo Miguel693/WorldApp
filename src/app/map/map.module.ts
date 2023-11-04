@@ -8,7 +8,11 @@ import { MaterialModule } from '../material/material.module';
 import { MarkersComponent } from './pages/markers/markers.component';
 import { CountryInfoComponent } from './pages/country-info/country-info.component';
 import { AddMarkerButtonComponent } from './components/add-marker-button/add-marker.component';
+import { MarkerCardComponent } from './components/marker-card/marker-card.component';
+import { MiniMapComponent } from './components/mini-map/mini-map.component';
 
+import * as mapboxgl from 'mapbox-gl';
+(mapboxgl as any).accessToken = 'pk.eyJ1IjoibWlndWVsNjkzIiwiYSI6ImNsbmR5YzA4azA4YnUya3BrNHMyNGx0YjkifQ.FbgA3hNLbSOUOeMvSkAjXg';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,9 @@ import { AddMarkerButtonComponent } from './components/add-marker-button/add-mar
     MapComponent,
     MarkersComponent,
     CountryInfoComponent,
-    AddMarkerButtonComponent
+    AddMarkerButtonComponent,
+    MarkerCardComponent,
+    MiniMapComponent,
   ],
   imports: [
     CommonModule,

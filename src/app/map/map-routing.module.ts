@@ -10,9 +10,9 @@ const routes: Routes = [
     path: '',
     component: MapLayoutComponent,
     children: [
-      { path: 'country-info', component: CountryInfoComponent},
-      { path: 'map-screen'  , component: MapComponent},
-      { path: 'markers'     , component: MarkersComponent},
+      { path: 'country-info', component: CountryInfoComponent,title:'Informacion'},
+      { path: 'map-screen'  , component: MapComponent, title:'Mapa'},
+      { path: 'markers'     , component: MarkersComponent, title:'Marcadores'},
     ],
   }
 
