@@ -2,6 +2,7 @@ import { Component, OnInit, computed, effect, inject } from '@angular/core';
 import { AuthService } from './auth/services/auth.service';
 import { Router } from '@angular/router';
 import { AuthStatus } from './auth/interfaces/auth-status.enum';
+import { Roles } from './auth/interfaces';
 
 @Component({
   selector: 'app-root',
@@ -9,33 +10,30 @@ import { AuthStatus } from './auth/interfaces/auth-status.enum';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontendApp';
 
+  title = 'frontendApp';
 
   private authService = inject(AuthService);
   private router = inject(Router);
 
-
-  public check = computed<boolean>( () => {
+  public finishedAuthCheck = computed<boolean>(() => {
     if(this.authService.authStatus() === AuthStatus.checking)
       return false;
     return true;
-  });
-
-
-  public authStatusChange = effect( () => {
-
-    switch( this.authService.authStatus()){
-      case AuthStatus.authenticated:
-        this.router.navigateByUrl('/map')
-        break;
-        case AuthStatus.notAuthenticated:
-          // this.router.navigateByUrl('/dashboard')
-          // this.router.navigateByUrl('/map')
-          this.router.navigateByUrl('/auth/login')
-        break;
-    }
-
   })
 
+  public authStatusChange = effect( () => {
+    switch( this.authService.authStatus()){
+      case AuthStatus.authenticated:
+        // if(this.authService.currentRole().includes(Roles.admin)){
+        //   this.router.navigateByUrl('/dashboard')
+        //   return;
+        // }
+        this.router.navigateByUrl('/map');
+        return;
+      case AuthStatus.notAuthenticated:
+          this.router.navigateByUrl('/auth/login')
+          return;
+    }
+  })
 }
