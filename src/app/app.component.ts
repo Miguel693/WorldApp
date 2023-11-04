@@ -25,15 +25,15 @@ export class AppComponent {
   public authStatusChange = effect( () => {
     switch( this.authService.authStatus()){
       case AuthStatus.authenticated:
-        // if(this.authService.currentRole().includes(Roles.admin)){
-        //   this.router.navigateByUrl('/dashboard')
-        //   return;
-        // }
+        if(this.authService.currentRole().includes(Roles.admin)){
+          this.router.navigateByUrl('/dashboard')
+          return;
+        }
         this.router.navigateByUrl('/map');
         return;
       case AuthStatus.notAuthenticated:
-          this.router.navigateByUrl('/auth/login')
-          return;
+        this.router.navigateByUrl('/auth/login')
+        return;
     }
   })
 }
