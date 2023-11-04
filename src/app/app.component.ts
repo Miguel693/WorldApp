@@ -32,7 +32,7 @@ export class AppComponent {
           return;
         }
 
-        this.router.navigateByUrl('/map');
+        this.router.navigateByUrl('/map/map-screen');
         return;
       case AuthStatus.notAuthenticated:
         this.router.navigateByUrl('/auth/login')

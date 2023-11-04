@@ -16,7 +16,8 @@ export class MapLayoutComponent implements OnInit{
   public user = this.authService.currentUser();
 
   ngOnInit(): void {
-    if(window.location.href.includes('map-screen'))
+    if(!window.location.href.includes('markers')) return;
+    if(!window.location.href.includes('country-info')) return;
     this.router.navigateByUrl('/map/map-screen');
   }
 

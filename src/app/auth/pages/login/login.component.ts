@@ -13,7 +13,7 @@ export class LoginComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   public myForm : FormGroup = this.fb.group({
-    email: ['abc@google.com', [Validators.required, Validators.email]],
+    email: ['miguel@google.com', [Validators.required, Validators.email]],
     password: ['12345678', [Validators.required, Validators.minLength(8)]]
   });
 
@@ -22,6 +22,7 @@ export class LoginComponent {
     const { email,  password } = this.myForm.value;
     this.authService.login(email,password).subscribe({
       next: () => this.router.navigateByUrl('/dashboard'),
+
       error: (err) => console.log(err),
     });
   }
