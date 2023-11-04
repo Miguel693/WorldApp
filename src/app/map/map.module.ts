@@ -12,6 +12,7 @@ import { MarkerCardComponent } from './components/marker-card/marker-card.compon
 import { MiniMapComponent } from './components/mini-map/mini-map.component';
 
 import * as mapboxgl from 'mapbox-gl';
+// apikey por defecto de mapbox
 (mapboxgl as any).accessToken = 'pk.eyJ1IjoibWlndWVsNjkzIiwiYSI6ImNsbmR5YzA4azA4YnUya3BrNHMyNGx0YjkifQ.FbgA3hNLbSOUOeMvSkAjXg';
 
 @NgModule({
