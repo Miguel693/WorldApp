@@ -1,2 +1,4 @@
-<h1 *ngIf="!finishedAuthCheck()">Loading</h1>
+<div *ngIf="!finishedAuthCheck()">
+  <mat-spinner></mat-spinner>
+</div>
 <router-outlet *ngIf="finishedAuthCheck()"></router-outlet>
