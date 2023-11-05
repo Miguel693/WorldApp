@@ -3,3 +3,11 @@
   height: 91.4vh ;
   background-color: #6ec8e1;
 }
+
+.north-reset-button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 50px;
+  margin-top: 100px;
+}

@@ -28,10 +28,13 @@ export class MapComponent implements AfterViewInit{
   }
 
   public addNewMarker(){
+    this.map!.resetNorth();
     const lngLat = this.map!.getCenter();
     const newMarker = new Marker({color : 'red', draggable: true}).setLngLat(lngLat).addTo(this.map!);
     this.markers?.push(newMarker);
   }
 
-
+  public onResetNorth() : void{
+    this.map!.resetNorthPitch();
+  }
 }
